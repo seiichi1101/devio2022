@@ -1,0 +1,14 @@
+# for blog
+blog_templates
+markdown.css
+BLOG.md
+MARP.md
+.vscode
+
+# for Django
+
+*.log
+*.pyc
+__pycache__/
+db-volumes/
+db.sqlite3
