@@ -41,12 +41,14 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'rules.apps.AutodiscoverRulesConfig',
 ]
 
 AUTH_USER_MODEL = 'apps.CustomUser'
 SITE_ID = 1
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
+    'rules.permissions.ObjectPermissionBackend',
 )
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 

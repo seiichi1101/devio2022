@@ -13,7 +13,7 @@
       <h2>Organizations</h2>
       {% for org in orgs %}
       <p>id: {{org.id}}</p>
-      <p>name: {{org.name}}</p>
+      <p>name: <a href="{% url 'apps:org_home' org_id=org.id%}">{{org.name}}</a></p>
       {% endfor %}
     </div>
   </div>
