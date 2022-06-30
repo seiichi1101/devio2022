@@ -9,5 +9,12 @@
       <p>username: {{user.username}}</p>
       <p>email: {{user.email}}</p>
     </div>
+    <div>
+      <h2>Organizations</h2>
+      {% for org in orgs %}
+      <p>id: {{org.id}}</p>
+      <p>name: {{org.name}}</p>
+      {% endfor %}
+    </div>
   </div>
 </body>
