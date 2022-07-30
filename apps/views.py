@@ -5,6 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
 
 from apps.models import Organization
+from django.core.exceptions import PermissionDenied
 
 
 class HomeView(LoginRequiredMixin, TemplateView):
@@ -25,6 +26,9 @@ class OrganizationHomeView(LoginRequiredMixin, TemplateView):
         context = super().get_context_data(*args, **kwargs)
         org = Organization.objects.get(id=kwargs["org_id"])
         context['org'] = org
+
+        if not self.request.user.has_perm('apps.view_org', org):
+            raise PermissionDenied
 
         groups = org.rolegroup_set.all()
         for group in groups:
